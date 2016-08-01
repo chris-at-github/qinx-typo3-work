@@ -271,7 +271,17 @@
                 "role": "Developer"
             }
         ],
-        "plugins": [],
+        "plugins": [
+            {
+                "actions": {
+                    "controllerActionCombinations": "",
+                    "noncacheableActions": "",
+                    "switchableActions": ""
+                },
+                "key": "pi1",
+                "name": "Qinx Work"
+            }
+        ],
         "vendorName": "Qinx"
     },
     "wires": [
@@ -325,7 +335,7 @@
         }
     ],
     "log": {
-        "last_modified": "2016-08-01 09:43",
+        "last_modified": "2016-08-01 03:41",
         "extension_builder_version": "7.6.0",
         "be_user": " (1)"
     }

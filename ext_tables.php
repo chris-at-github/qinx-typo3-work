@@ -3,6 +3,12 @@ if (!defined('TYPO3_MODE')) {
 	die('Access denied.');
 }
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	'Qinx.' . $_EXTKEY,
+	'Pi1',
+	'Qinx Work'
+);
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Qinx Work');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_qxwork_domain_model_project', 'EXT:qxwork/Resources/Private/Language/locallang_csh_tx_qxwork_domain_model_project.xlf');
