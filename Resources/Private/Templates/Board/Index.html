@@ -1,0 +1,23 @@
+<f:layout name="Default" />
+
+<f:section name="Main">
+	<f:flashMessages />
+
+	<table  class="tx_qxwork" >
+		<tr>
+			<th><f:translate key="tx_qxwork_domain_model_board.title" /></th>
+			<th> </th>
+			<th> </th>
+		</tr>
+
+		<f:for each="{boards}" as="board">
+			<tr>
+				<td><f:link.action action="show" arguments="{board : board}"> {board.title}</f:link.action></td>
+				<td><f:link.action action="edit" arguments="{board : board}">Edit</f:link.action></td>
+				<td><f:link.action action="delete" arguments="{board : board}">Delete</f:link.action></td>
+			</tr>
+		</f:for>
+	</table>
+
+	<f:link.action action="new">New Board</f:link.action>
+</f:section>
