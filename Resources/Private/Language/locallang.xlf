@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-08-01T09:17:27Z" product-name="qxwork">
+		<header/>
+		<body>
+			<trans-unit id="tx_qxwork_domain_model_projekt">
+				<source>Projekt</source>
+			</trans-unit>
+			<trans-unit id="tx_qxwork_domain_model_projekt.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_qxwork_domain_model_board">
+				<source>Board</source>
+			</trans-unit>
+			<trans-unit id="tx_qxwork_domain_model_board.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_qxwork_domain_model_board.project">
+				<source>Project</source>
+			</trans-unit>
+			<trans-unit id="tx_qxwork_domain_model_card">
+				<source>Card</source>
+			</trans-unit>
+			<trans-unit id="tx_qxwork_domain_model_card.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_qxwork_domain_model_card.board">
+				<source>Board</source>
+			</trans-unit>
+			<trans-unit id="tx_qxwork_domain_model_card.container">
+				<source>Container</source>
+			</trans-unit>
+			<trans-unit id="tx_qxwork_domain_model_container">
+				<source>Container</source>
+			</trans-unit>
+			<trans-unit id="tx_qxwork_domain_model_container.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_qxwork_domain_model_container.board">
+				<source>Board</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
