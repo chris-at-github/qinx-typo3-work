@@ -1,7 +1,7 @@
 #
-# Table structure for table 'tx_qxwork_domain_model_projekt'
+# Table structure for table 'tx_qxwork_domain_model_project'
 #
-CREATE TABLE tx_qxwork_domain_model_projekt (
+CREATE TABLE tx_qxwork_domain_model_project (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,

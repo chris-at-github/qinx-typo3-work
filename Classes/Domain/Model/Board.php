@@ -44,7 +44,7 @@ class Board extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * project
      * 
-     * @var \Qinx\Qxwork\Domain\Model\Projekt
+     * @var \Qinx\Qxwork\Domain\Model\Project
      * @lazy
      */
     protected $project = null;
@@ -73,7 +73,7 @@ class Board extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the project
      * 
-     * @return \Qinx\Qxwork\Domain\Model\Projekt $project
+     * @return \Qinx\Qxwork\Domain\Model\Project $project
      */
     public function getProject()
     {
@@ -83,10 +83,10 @@ class Board extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the project
      * 
-     * @param \Qinx\Qxwork\Domain\Model\Projekt $project
+     * @param \Qinx\Qxwork\Domain\Model\Project $project
      * @return void
      */
-    public function setProject(\Qinx\Qxwork\Domain\Model\Projekt $project)
+    public function setProject(\Qinx\Qxwork\Domain\Model\Project $project)
     {
         $this->project = $project;
     }

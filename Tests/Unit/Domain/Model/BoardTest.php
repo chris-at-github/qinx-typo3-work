@@ -79,7 +79,7 @@ class BoardTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	/**
 	 * @test
 	 */
-	public function getProjectReturnsInitialValueForProjekt()
+	public function getProjectReturnsInitialValueForProject()
 	{
 		$this->assertEquals(
 			NULL,
@@ -90,9 +90,9 @@ class BoardTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	/**
 	 * @test
 	 */
-	public function setProjectForProjektSetsProject()
+	public function setProjectForProjectSetsProject()
 	{
-		$projectFixture = new \Qinx\Qxwork\Domain\Model\Projekt();
+		$projectFixture = new \Qinx\Qxwork\Domain\Model\Project();
 		$this->subject->setProject($projectFixture);
 
 		$this->assertAttributeEquals(
