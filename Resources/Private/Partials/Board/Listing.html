@@ -1,0 +1,9 @@
+<f:if condition="{boards}">
+	<ul>
+		<f:for each="{boards}" as="board">
+			<li>
+				<f:link action="index" arguments="{board: board}">{board.title}</f:link>
+			</li>
+		</f:for>
+	</ul>
+</f:if>
