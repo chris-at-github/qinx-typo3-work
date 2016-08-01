@@ -28,9 +28,9 @@ namespace Qinx\Qxwork\Domain\Repository;
  ***************************************************************/
 
 /**
- * The repository for Projekts
+ * The repository for Projects
  */
-class ProjektRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class ProjectRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
 
     /**

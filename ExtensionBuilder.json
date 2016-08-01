@@ -17,7 +17,7 @@
                     "_default4_delete": false,
                     "customActions": []
                 },
-                "name": "Projekt",
+                "name": "Project",
                 "objectsettings": {
                     "addDeletedField": true,
                     "addHiddenField": true,
@@ -261,8 +261,8 @@
         },
         "extensionKey": "qxwork",
         "name": "Qinx Work",
-        "originalExtensionKey": "",
-        "originalVendorName": "",
+        "originalExtensionKey": "qxwork",
+        "originalVendorName": "Qinx",
         "persons": [
             {
                 "company": "",
@@ -325,7 +325,7 @@
         }
     ],
     "log": {
-        "last_modified": "2016-08-01 09:17",
+        "last_modified": "2016-08-01 09:43",
         "extension_builder_version": "7.6.0",
         "be_user": " (1)"
     }

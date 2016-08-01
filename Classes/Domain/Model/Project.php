@@ -28,9 +28,9 @@ namespace Qinx\Qxwork\Domain\Model;
  ***************************************************************/
 
 /**
- * Projekt
+ * Project
  */
-class Projekt extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Project extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
     /**

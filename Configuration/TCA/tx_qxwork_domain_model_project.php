@@ -1,7 +1,7 @@
 <?php
 return array(
 	'ctrl' => array(
-		'title'	=> 'LLL:EXT:qxwork/Resources/Private/Language/locallang_db.xlf:tx_qxwork_domain_model_projekt',
+		'title'	=> 'LLL:EXT:qxwork/Resources/Private/Language/locallang_db.xlf:tx_qxwork_domain_model_project',
 		'label' => 'title',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
@@ -21,7 +21,7 @@ return array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'title,',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('qxwork') . 'Resources/Public/Icons/tx_qxwork_domain_model_projekt.gif'
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('qxwork') . 'Resources/Public/Icons/tx_qxwork_domain_model_project.gif'
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title',
@@ -58,8 +58,8 @@ return array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_qxwork_domain_model_projekt',
-				'foreign_table_where' => 'AND tx_qxwork_domain_model_projekt.pid=###CURRENT_PID### AND tx_qxwork_domain_model_projekt.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_qxwork_domain_model_project',
+				'foreign_table_where' => 'AND tx_qxwork_domain_model_project.pid=###CURRENT_PID### AND tx_qxwork_domain_model_project.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -119,7 +119,7 @@ return array(
 
 		'title' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:qxwork/Resources/Private/Language/locallang_db.xlf:tx_qxwork_domain_model_projekt.title',
+			'label' => 'LLL:EXT:qxwork/Resources/Private/Language/locallang_db.xlf:tx_qxwork_domain_model_project.title',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,

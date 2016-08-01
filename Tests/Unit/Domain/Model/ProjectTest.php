@@ -27,23 +27,23 @@ namespace Qinx\Qxwork\Tests\Unit\Domain\Model;
  ***************************************************************/
 
 /**
- * Test case for class \Qinx\Qxwork\Domain\Model\Projekt.
+ * Test case for class \Qinx\Qxwork\Domain\Model\Project.
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @author Christian Pschorr <qinx.me>
  */
-class ProjektTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+class ProjectTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
 	/**
-	 * @var \Qinx\Qxwork\Domain\Model\Projekt
+	 * @var \Qinx\Qxwork\Domain\Model\Project
 	 */
 	protected $subject = NULL;
 
 	public function setUp()
 	{
-		$this->subject = new \Qinx\Qxwork\Domain\Model\Projekt();
+		$this->subject = new \Qinx\Qxwork\Domain\Model\Project();
 	}
 
 	public function tearDown()

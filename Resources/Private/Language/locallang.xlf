@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-08-01T09:17:27Z" product-name="qxwork">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-08-01T09:43:48Z" product-name="qxwork">
 		<header/>
 		<body>
-			<trans-unit id="tx_qxwork_domain_model_projekt">
-				<source>Projekt</source>
+			<trans-unit id="tx_qxwork_domain_model_project">
+				<source>Project</source>
 			</trans-unit>
-			<trans-unit id="tx_qxwork_domain_model_projekt.title">
+			<trans-unit id="tx_qxwork_domain_model_project.title">
 				<source>Title</source>
 			</trans-unit>
 			<trans-unit id="tx_qxwork_domain_model_board">

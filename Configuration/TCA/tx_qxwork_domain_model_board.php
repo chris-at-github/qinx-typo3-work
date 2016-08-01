@@ -132,7 +132,7 @@ return array(
 			'config' => array(
 				'type' => 'select',
 				'renderType' => 'selectSingle',
-				'foreign_table' => 'tx_qxwork_domain_model_projekt',
+				'foreign_table' => 'tx_qxwork_domain_model_project',
 				'minitems' => 0,
 				'maxitems' => 1,
 			),
