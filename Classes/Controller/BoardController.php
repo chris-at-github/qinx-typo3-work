@@ -30,16 +30,25 @@ namespace Qinx\Qxwork\Controller;
 /**
  * BoardController
  */
-class BoardController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
-{
+class BoardController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
-    /**
-     * boardRepository
-     * 
-     * @var \Qinx\Qxwork\Domain\Repository\BoardRepository
-     * @inject
-     */
-    protected $boardRepository = NULL;
+	/**
+	 * action list
+	 *
+	 * @return void
+	 */
+	public function indexAction() {
+		$this->view->assign('boards', $this->objectManager->get('Qinx\Qxwork\Domain\Repository\BoardRepository')->findAll());
+	}
+
+
+	/**
+	 * boardRepository
+	 *
+	 * @var \Qinx\Qxwork\Domain\Repository\BoardRepository
+	 * @inject
+	 */
+	protected $boardRepository = NULL;
     
     /**
      * action list
