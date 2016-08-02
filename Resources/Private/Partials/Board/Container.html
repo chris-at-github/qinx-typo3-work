@@ -1,11 +1,13 @@
 <f:if condition="{containers}">
-	<div class="board--containers">
-		<f:for each="{containers}" as="container">
-			<div class="container">
-				<div class="container--header">
-					<div class="container--header-title">{container.title}</div>
+	<div class="container--outer">
+		<div class="container--inner clearfix">
+			<f:for each="{containers}" as="container">
+				<div class="container">
+					<div class="container--header">
+						<div class="container--header-title">{container.title}</div>
+					</div>
 				</div>
-			</div>
-		</f:for>
+			</f:for>
+		</div>
 	</div>
 </f:if>
