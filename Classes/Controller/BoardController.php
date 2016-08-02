@@ -33,11 +33,13 @@ namespace Qinx\Qxwork\Controller;
 class BoardController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
-	 * action list
+	 * Display a single boards with all container and cards
 	 *
+	 * @param \Qinx\Qxwork\Domain\Model\Board $board
+	 * @dontvalidate $board
 	 * @return void
 	 */
-	public function indexAction() {
+	public function indexAction(\Qinx\Qxwork\Domain\Model\Board $board = null) {
 		$this->view->assign('boards', $this->objectManager->get('Qinx\Qxwork\Domain\Repository\BoardRepository')->findAll());
 	}
 
