@@ -47,6 +47,19 @@ class ContainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 */
 	public function createQuery($options = []) {
 		$query = parent::createQuery();
+		$matches = [];
+
+		if(isset($options['board']) === true) {
+			if($options['board'] instanceof \Qinx\Qxwork\Domain\Model\Board) {
+				$options['board'] = $options['board']->getUid();
+			}
+
+			$matches[] = $query->equals('board', $options['board']);
+		}
+
+		if(empty($matches) === false) {
+			$query->matching($query->logicalAnd($matches));
+		}
 
 		return $query;
 	}
@@ -56,7 +69,7 @@ class ContainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
 	 */
 	public function findAll($options = []) {
-		$query = $this->createQuery();
+		$query = $this->createQuery($options);
 
 		return $query->execute();
 	}
