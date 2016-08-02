@@ -6,6 +6,15 @@
 					<div class="container--header">
 						<div class="container--header-title">{container.title}</div>
 					</div>
+					<div class="container--body">
+
+						<f:if condition="{container.cards}">
+							<f:for each="{container.cards}" as="card">
+								<f:render partial="Card/Abstract" arguments="{card: card}"/>
+							</f:for>
+						</f:if>
+
+					</div>
 				</div>
 			</f:for>
 		</div>

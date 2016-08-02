@@ -33,6 +33,12 @@ namespace Qinx\Qxwork\Domain\Model;
 class Container extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
+	/**
+	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
+	 * @inject
+	 */
+	protected $objectManager;
+
     /**
      * title
      * 
@@ -90,4 +96,14 @@ class Container extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->board = $board;
     }
 
+	/**
+	 * Returns all cards that assigned to this container
+	 *
+	 * @return null|array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+	 */
+	public function getCards() {
+		return $this->objectManager->get('Qinx\Qxwork\Domain\Repository\CardRepository')->findAll([
+			'container' => $this
+		]);
+	}
 }
