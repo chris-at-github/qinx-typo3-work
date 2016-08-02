@@ -41,6 +41,7 @@ class BoardController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	public function indexAction(\Qinx\Qxwork\Domain\Model\Board $board = null) {
 		$this->view->assign('boards', $this->objectManager->get('Qinx\Qxwork\Domain\Repository\BoardRepository')->findAll());
+		$this->view->assign('board', $board);
 	}
 
 

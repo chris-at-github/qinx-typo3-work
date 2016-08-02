@@ -9,7 +9,9 @@
 		</div>
 
 		<div class="col-xs-12 col-sm-9">
-			###CONTAINER### / ###CARDS###
+			<f:if condition="{board}">
+				<f:render partial="Board/Container" arguments="{board: board, containers: board.containers}"/>
+			</f:if>
 		</div>
 	</div>
 </f:section>

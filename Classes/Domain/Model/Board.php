@@ -33,6 +33,12 @@ namespace Qinx\Qxwork\Domain\Model;
 class Board extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
+	/**
+	 * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
+	 * @inject
+	 */
+	protected $objectManager;
+
     /**
      * title
      * 
@@ -91,4 +97,14 @@ class Board extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->project = $project;
     }
 
+	/**
+	 * Returns all container that assigned to this board
+	 *
+	 * @return null|array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+	 */
+	public function getContainers() {
+		return $this->objectManager->get('Qinx\Qxwork\Domain\Repository\ContainerRepository')->findAll([
+			'board' => $this
+		]);
+	}
 }

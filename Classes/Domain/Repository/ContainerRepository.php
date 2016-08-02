@@ -40,4 +40,25 @@ class ContainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
     );
 
+	/**
+	 * Query builder for container models for find and findAll method
+	 *
+	 * @param array $options
+	 * @return \TYPO3\CMS\Extbase\Persistence\QueryInterface
+	 */
+	public function createQuery($options = []) {
+		$query = parent::createQuery();
+
+		return $query;
+	}
+
+	/**
+	 * @param array $options
+	 * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+	 */
+	public function findAll($options = []) {
+		$query = $this->createQuery();
+
+		return $query->execute();
+	}
 }
