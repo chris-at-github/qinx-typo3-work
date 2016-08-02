@@ -30,15 +30,14 @@ namespace Qinx\Qxwork\Domain\Repository;
 /**
  * The repository for Containers
  */
-class ContainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
-{
+class ContainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
-    /**
-     * @var array
-     */
-    protected $defaultOrderings = array(
-        'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
-    );
+	/**
+	 * @var array
+	 */
+	protected $defaultOrderings = array(
+		'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+	);
 
 	/**
 	 * Query builder for container models for find and findAll method
