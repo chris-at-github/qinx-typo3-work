@@ -74,4 +74,18 @@ class CardRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		return $query->execute();
 	}
 
+	/**
+	 * save method
+	 *
+	 * @param \Qinx\Qxwork\Domain\Model\Card $card
+	 * @return void
+	 */
+	public function save(\Qinx\Qxwork\Domain\Model\Card $card) {
+		if($card->getUid() === null) {
+			$this->add($card);
+
+		} else {
+			$this->update($card);
+		}
+	}
 }

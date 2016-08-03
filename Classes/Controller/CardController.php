@@ -50,8 +50,8 @@ class CardController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 * @return void
 	 */
 	public function saveAction(\Qinx\Qxwork\Domain\Model\Card $card, \Qinx\Qxwork\Domain\Model\Board $board) {
+		$this->objectManager->get('Qinx\Qxwork\Domain\Repository\CardRepository')->save($card);
 		$this->redirect('index', 'Board', null, ['board' => $board]);
-
 	}
 
     /**
