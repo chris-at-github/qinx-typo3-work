@@ -10,7 +10,7 @@
 
 						<f:if condition="{container.cards}">
 							<f:for each="{container.cards}" as="card">
-								<f:render partial="Card/Abstract" arguments="{card: card}"/>
+								<f:render partial="Card/Abstract" arguments="{card: card, board: board}"/>
 							</f:for>
 						</f:if>
 

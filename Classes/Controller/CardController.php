@@ -35,10 +35,23 @@ class CardController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 * action handle
 	 *
 	 * @param \Qinx\Qxwork\Domain\Model\Card $card
+	 * @param \Qinx\Qxwork\Domain\Model\Board $board
 	 * @return void
 	 */
-	public function handleAction(\Qinx\Qxwork\Domain\Model\Card $card) {
+	public function handleAction(\Qinx\Qxwork\Domain\Model\Card $card, \Qinx\Qxwork\Domain\Model\Board $board) {
 		$this->view->assign('card', $card);
+		$this->view->assign('board', $board);
+	}
+
+	/**
+	 * save action
+	 * @param \Qinx\Qxwork\Domain\Model\Card $card
+	 * @param \Qinx\Qxwork\Domain\Model\Board $board
+	 * @return void
+	 */
+	public function saveAction(\Qinx\Qxwork\Domain\Model\Card $card, \Qinx\Qxwork\Domain\Model\Board $board) {
+		$this->redirect('index', 'Board', null, ['board' => $board]);
+
 	}
 
     /**

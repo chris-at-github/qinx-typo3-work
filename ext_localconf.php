@@ -7,15 +7,15 @@ if (!defined('TYPO3_MODE')) {
 	'Qinx.' . $_EXTKEY,
 	'Pi1',
 	array(
-		'Board' => 'index, list, show, new, create, edit, update, delete',
-		'Card' => 'handle, list, show, new, create, edit, update, delete',
-		'Container' => 'list, show, new, create, edit, update, delete',
+		'Board' => 'index',
+		'Card' => 'handle, save',
+		'Container' => '',
 	),
 
 	// non-cacheable actions
 	array(
-		'Board' => 'create, update, delete',
-		'Card' => 'handle, create, update, delete',
-		'Container' => 'create, update, delete',
+		'Board' => '',
+		'Card' => 'handle, save',
+		'Container' => '',
 	)
 );

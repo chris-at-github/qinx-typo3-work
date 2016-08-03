@@ -1,10 +1,14 @@
-<f:layout name="Default"/>
+<f:layout name="Default" xmlns:f="http://www.w3.org/1999/html"/>
 <f:section name="Main">
 
 	<f:flashMessages/>
 	<f:render partial="FormErrors" arguments="{object: Card}"/>
 
 	<f:form action="save" name="card" object="{card}">
+		<div>
+			<f:form.hidden name="board" value="{board}"/>
+		</div>
+
 		<f:render partial="Card/FormFields" arguments="{card: card}"/>
 
 		<div class="form-actions">
