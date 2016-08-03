@@ -1,0 +1,15 @@
+<f:layout name="Default"/>
+<f:section name="Main">
+
+	<f:flashMessages/>
+	<f:render partial="FormErrors" arguments="{object: Card}"/>
+
+	<f:form action="save" name="card" object="{card}">
+		<f:render partial="Card/FormFields" arguments="{card: card}"/>
+
+		<div class="form-actions">
+			<f:form.button type="submit"><f:translate key="actions.save"/></f:form.button>
+		</div>
+	</f:form>
+
+</f:section>

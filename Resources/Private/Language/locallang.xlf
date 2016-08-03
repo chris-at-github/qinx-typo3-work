@@ -39,6 +39,14 @@
 			<trans-unit id="tx_qxwork_domain_model_container.board">
 				<source>Board</source>
 			</trans-unit>
+
+			<trans-unit id="actions.save">
+				<source>Save</source>
+			</trans-unit>
+
+			<trans-unit id="card.title">
+				<source>Title</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

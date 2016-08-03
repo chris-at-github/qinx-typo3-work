@@ -38,7 +38,7 @@ class CardController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 * @return void
 	 */
 	public function handleAction(\Qinx\Qxwork\Domain\Model\Card $card) {
-
+		$this->view->assign('card', $card);
 	}
 
     /**
