@@ -1,7 +1,6 @@
 <?php
 namespace Qinx\Qxwork\Controller;
 
-
 /***************************************************************
  *
  *  Copyright notice
@@ -30,8 +29,17 @@ namespace Qinx\Qxwork\Controller;
 /**
  * CardController
  */
-class CardController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
-{
+class CardController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+
+	/**
+	 * action handle
+	 *
+	 * @param \Qinx\Qxwork\Domain\Model\Card $card
+	 * @return void
+	 */
+	public function handleAction(\Qinx\Qxwork\Domain\Model\Card $card) {
+
+	}
 
     /**
      * cardRepository
