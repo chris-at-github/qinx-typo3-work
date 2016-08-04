@@ -81,4 +81,15 @@ class ApplicationRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		$tableField = ($tableName) ? $tableName . '.pid' : 'pid';
 		return " AND $tableField IN (" . implode(', ', $storagePids) . ') ';
 	}
+
+	public function debugQuery(\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $queryResult) {
+		$GLOBALS['TYPO3_DB']->debugOuput = 2;
+		$GLOBALS['TYPO3_DB']->store_lastBuiltQuery = true;
+		$queryResult->toArray();
+		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($GLOBALS['TYPO3_DB']->debug_lastBuiltQuery);
+
+		$GLOBALS['TYPO3_DB']->store_lastBuiltQuery = false;
+		$GLOBALS['TYPO3_DB']->explainOutput = false;
+		$GLOBALS['TYPO3_DB']->debugOuput = false;
+	}
 }
