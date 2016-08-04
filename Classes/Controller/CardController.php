@@ -25,6 +25,7 @@ namespace Qinx\Qxwork\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * CardController
@@ -47,11 +48,14 @@ class CardController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	 * save action
 	 * @param \Qinx\Qxwork\Domain\Model\Card $card
 	 * @param \Qinx\Qxwork\Domain\Model\Board $board
+	 * @param \Qinx\Qxwork\Domain\Model\Container $container
 	 * @return void
 	 */
-	public function saveAction(\Qinx\Qxwork\Domain\Model\Card $card, \Qinx\Qxwork\Domain\Model\Board $board) {
-		$this->objectManager->get('Qinx\Qxwork\Domain\Repository\CardRepository')->save($card);
-		$this->redirect('index', 'Board', null, ['board' => $board]);
+	public function saveAction(\Qinx\Qxwork\Domain\Model\Card $card, \Qinx\Qxwork\Domain\Model\Board $board, \Qinx\Qxwork\Domain\Model\Container $container) {
+		$from = $this->objectManager->get('Qinx\Qxwork\Domain\Repository\ContainerRepository')->find(['board' => $board, 'card' => $card]);
+
+//		$this->objectManager->get('Qinx\Qxwork\Domain\Repository\CardRepository')->save($card);
+//		$this->redirect('index', 'Board', null, ['board' => $board]);
 	}
 
     /**
