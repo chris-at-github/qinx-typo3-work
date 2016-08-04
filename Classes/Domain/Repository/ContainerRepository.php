@@ -1,7 +1,6 @@
 <?php
 namespace Qinx\Qxwork\Domain\Repository;
 
-
 /***************************************************************
  *
  *  Copyright notice
@@ -30,7 +29,7 @@ namespace Qinx\Qxwork\Domain\Repository;
 /**
  * The repository for Containers
  */
-class ContainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class ContainerRepository extends ApplicationRepository {
 
 	/**
 	 * @var array
@@ -38,6 +37,45 @@ class ContainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	protected $defaultOrderings = array(
 		'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
 	);
+
+	/**
+	 * Find all container uids from a collection of cards
+	 *
+	 * @param array $cards
+	 * @return array
+	 */
+	protected function findUidByCard($cards) {
+		$query = parent::createQuery();
+		$in = [];
+		$uid = [];
+
+		// we working only with a Traversable items
+		if($cards instanceof \Qinx\Qxwork\Domain\Model\Card) {
+			$card = clone $cards;
+			$cards = [];
+
+			$cards[] = $card;
+		}
+
+		foreach($cards as $card) {
+			if($card instanceof \Qinx\Qxwork\Domain\Model\Card) {
+				$in[] = (int) $card->getUid();
+
+			} else {
+				$in[] = (int) $card;
+			}
+		}
+
+		foreach($GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
+			'tx_qxwork_card_container_mm.uid_foreign AS uid',
+			'tx_qxwork_card_container_mm',
+			'tx_qxwork_card_container_mm.uid_local IN (' . implode(',', $in) . ')'
+		) as $row) {
+			$uid[] = (int) $row['uid'];
+		}
+
+		return $uid;
+	}
 
 	/**
 	 * Query builder for container models for find and findAll method
@@ -57,6 +95,18 @@ class ContainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			$matches[] = $query->equals('board', $options['board']);
 		}
 
+		if(isset($options['card']) === true) {
+			$or = [];
+
+			foreach($this->findUidByCard($options['card']) as $uid) {
+				$or[] = $query->equals('uid', $uid);
+			}
+
+			if(empty($or) === false) {
+				$matches[] = $query->logicalAnd($query->logicalOr($or));
+			}
+		}
+
 		if(empty($matches) === false) {
 			$query->matching($query->logicalAnd($matches));
 		}
@@ -72,5 +122,13 @@ class ContainerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		$query = $this->createQuery($options);
 
 		return $query->execute();
+	}
+
+	/**
+	 * @param array $options
+	 * @return null|\Qinx\Qxwork\Domain\Model\Container
+	 */
+	public function find($options = []) {
+		return $this->createQuery($options)->execute()->getFirst();
 	}
 }
