@@ -2,3 +2,8 @@
 	<label class="form-field" for="card--title"><f:translate key="card.title"/></label>
 	<f:form.textfield class="form-field" id="card--title" property="title"/>
 </div>
+
+<div class="form-item">
+	<label class="form-field" for="card--containers"><f:translate key="card.container"/></label>
+	<f:form.select class="form-field" id="card--containers" options="{board.containers}" optionLabelField="title" property="container"/>
+</div>

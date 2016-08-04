@@ -47,6 +47,9 @@
 			<trans-unit id="card.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="card.container">
+				<source>Container</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
