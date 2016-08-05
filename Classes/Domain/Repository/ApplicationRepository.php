@@ -98,4 +98,45 @@ class ApplicationRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		$GLOBALS['TYPO3_DB']->explainOutput = false;
 		$GLOBALS['TYPO3_DB']->debugOuput = false;
 	}
+
+	/**
+	 * Find all foreign UIDs from a mm relation. The direction in extbase is not bidirectional.
+	 *
+	 * You can configure an bidirectional relation about tca configuration
+	 * @see http://lbrmedia.net/codebase/Eintrag/extbase-bidirektionale-mm-relation/
+	 *
+	 * @param array $foreign
+	 * @return array
+	 */
+	protected function findUidByForeign($foreign) {
+		$query = parent::createQuery();
+		$in = [];
+		$uid = [];
+
+//		// we working only with a Traversable items
+//		if($cards instanceof \Qinx\Qxwork\Domain\Model\Card) {
+//			$card = clone $cards;
+//			$cards = [];
+//
+//			$cards[] = $card;
+//		}
+//
+//		foreach($cards as $card) {
+//			if($card instanceof \Qinx\Qxwork\Domain\Model\Card) {
+//				$in[] = (int)$card->getUid();
+//			} else {
+//				$in[] = (int)$card;
+//			}
+//		}
+//
+//		foreach($GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
+//			'tx_qxwork_card_container_mm.uid_foreign AS uid',
+//			'tx_qxwork_card_container_mm',
+//			'tx_qxwork_card_container_mm.uid_local IN (' . implode(',', $in) . ')'
+//		) as $row) {
+//			$uid[] = (int)$row['uid'];
+//		}
+
+		return $uid;
+	}
 }
