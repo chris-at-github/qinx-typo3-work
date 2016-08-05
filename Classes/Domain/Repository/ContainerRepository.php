@@ -39,45 +39,6 @@ class ContainerRepository extends ApplicationRepository {
 	);
 
 	/**
-	 * Find all container uids from a collection of cards
-	 *
-	 * @param array $cards
-	 * @return array
-	 */
-	protected function findUidByCard($cards) {
-		$query = parent::createQuery();
-		$in = [];
-		$uid = [];
-
-		// we working only with a Traversable items
-		if($cards instanceof \Qinx\Qxwork\Domain\Model\Card) {
-			$card = clone $cards;
-			$cards = [];
-
-			$cards[] = $card;
-		}
-
-		foreach($cards as $card) {
-			if($card instanceof \Qinx\Qxwork\Domain\Model\Card) {
-				$in[] = (int) $card->getUid();
-
-			} else {
-				$in[] = (int) $card;
-			}
-		}
-
-		foreach($GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
-			'tx_qxwork_card_container_mm.uid_foreign AS uid',
-			'tx_qxwork_card_container_mm',
-			'tx_qxwork_card_container_mm.uid_local IN (' . implode(',', $in) . ')'
-		) as $row) {
-			$uid[] = (int) $row['uid'];
-		}
-
-		return $uid;
-	}
-
-	/**
 	 * Query builder for container models for find and findAll method
 	 *
 	 * @param array $options
@@ -96,16 +57,10 @@ class ContainerRepository extends ApplicationRepository {
 		}
 
 		if(isset($options['card']) === true) {
-			var_dump($this->findUidByForeign($options['card'], 'tx_qxwork_card_container_mm'));
-//			$or = [];
-//
-//			foreach($this->findUidByCard($options['card']) as $uid) {
-//				$or[] = $query->equals('uid', $uid);
-//			}
-//
-//			if(empty($or) === false) {
-//				$matches[] = $query->logicalAnd($query->logicalOr($or));
-//			}
+			$matches[] = $this->inUid(
+				$query,
+				$this->findUidByForeign($options['card'], 'tx_qxwork_card_container_mm')
+			);
 		}
 
 		if(empty($matches) === false) {

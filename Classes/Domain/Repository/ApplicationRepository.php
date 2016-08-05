@@ -102,7 +102,7 @@ class ApplicationRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	/**
 	 * Find all foreign UIDs from a mm relation. The direction in extbase is not bidirectional.
 	 *
-	 * You can configure an bidirectional relation about tca configuration
+	 * You can configure a bidirectional relation about tca configuration
 	 * @see http://lbrmedia.net/codebase/Eintrag/extbase-bidirektionale-mm-relation/
 	 *
 	 * @param array $foreign
@@ -136,5 +136,22 @@ class ApplicationRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		}
 
 		return $uid;
+	}
+
+	/**
+	 * Create a in uid query part. $query->in(uid, $uid) not working
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\QueryInterface $query
+	 * @param array $uid
+	 * @return \TYPO3\CMS\Extbase\Persistence\Generic\Qom\AndInterface
+	 */
+	public function inUid(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query, $uid) {
+		$or = [];
+
+		foreach($uid as $single) {
+			$or[] = $query->equals('uid', $single);
+		}
+
+		return $query->logicalAnd($query->logicalOr($or));
 	}
 }
