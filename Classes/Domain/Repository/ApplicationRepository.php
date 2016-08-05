@@ -82,6 +82,12 @@ class ApplicationRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		return " AND $tableField IN (" . implode(', ', $storagePids) . ') ';
 	}
 
+	/**
+	 * Debug an extbase query result. Before debugging the query you must execute it. ($query->execute())
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $queryResult
+	 * @return void
+	 */
 	public function debugQuery(\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $queryResult) {
 		$GLOBALS['TYPO3_DB']->debugOuput = 2;
 		$GLOBALS['TYPO3_DB']->store_lastBuiltQuery = true;
