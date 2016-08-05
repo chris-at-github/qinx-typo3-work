@@ -106,36 +106,34 @@ class ApplicationRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 * @see http://lbrmedia.net/codebase/Eintrag/extbase-bidirektionale-mm-relation/
 	 *
 	 * @param array $foreign
+	 * @param string $table
 	 * @return array
 	 */
-	protected function findUidByForeign($foreign) {
-		$query = parent::createQuery();
+	protected function findUidByForeign($foreign, $table) {
 		$in = [];
 		$uid = [];
 
-//		// we working only with a Traversable items
-//		if($cards instanceof \Qinx\Qxwork\Domain\Model\Card) {
-//			$card = clone $cards;
-//			$cards = [];
-//
-//			$cards[] = $card;
-//		}
-//
-//		foreach($cards as $card) {
-//			if($card instanceof \Qinx\Qxwork\Domain\Model\Card) {
-//				$in[] = (int)$card->getUid();
-//			} else {
-//				$in[] = (int)$card;
-//			}
-//		}
-//
-//		foreach($GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
-//			'tx_qxwork_card_container_mm.uid_foreign AS uid',
-//			'tx_qxwork_card_container_mm',
-//			'tx_qxwork_card_container_mm.uid_local IN (' . implode(',', $in) . ')'
-//		) as $row) {
-//			$uid[] = (int)$row['uid'];
-//		}
+		// we working only with a Traversable items
+		if($foreign instanceof \TYPO3\CMS\Extbase\DomainObject\AbstractEntity) {
+			$entity = clone $foreign;
+			$foreign = [$entity];
+		}
+
+		foreach($foreign as $key) {
+			if($key instanceof \TYPO3\CMS\Extbase\DomainObject\AbstractEntity) {
+				$in[] = (int) $key->getUid();
+			} else {
+				$in[] = (int) $key;
+			}
+		}
+
+		foreach($GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
+			$table . '.uid_foreign AS uid',
+			$table,
+			$table . '.uid_local IN (' . implode(',', $in) . ')'
+		) as $row) {
+			$uid[] = (int) $row['uid'];
+		}
 
 		return $uid;
 	}

@@ -96,15 +96,16 @@ class ContainerRepository extends ApplicationRepository {
 		}
 
 		if(isset($options['card']) === true) {
-			$or = [];
-
-			foreach($this->findUidByCard($options['card']) as $uid) {
-				$or[] = $query->equals('uid', $uid);
-			}
-
-			if(empty($or) === false) {
-				$matches[] = $query->logicalAnd($query->logicalOr($or));
-			}
+			var_dump($this->findUidByForeign($options['card'], 'tx_qxwork_card_container_mm'));
+//			$or = [];
+//
+//			foreach($this->findUidByCard($options['card']) as $uid) {
+//				$or[] = $query->equals('uid', $uid);
+//			}
+//
+//			if(empty($or) === false) {
+//				$matches[] = $query->logicalAnd($query->logicalOr($or));
+//			}
 		}
 
 		if(empty($matches) === false) {
